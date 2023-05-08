@@ -1,18 +1,14 @@
 body {
-  /* width: 400px;
+  width: 400px;
+  /* height: auto; */
   background-color: aliceblue;
 
+  /* overflow: hidden;   */
   border-radius: 1rem;
   padding: 0.4rem;
   margin: 0.4rem;
   text-align: center;
-  background-color: azure; */
-
-  background-color: #f0f8ff;
-  border-radius: 1rem;
-  margin: 0.4rem;
-  padding: 0.4rem;
-  width: 400px;
+  background-color: azure;
 }
 
 .App {
