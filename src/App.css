@@ -13,23 +13,17 @@ body {
   margin: 0.4rem;
   padding: 0.4rem;
   width: 400px;
+  overflow: auto;
 }
 
-.App {
-  /* display: flex;
-  justify-content: center; */
-}
-
-.root {
-  /* display: flex; */
-  /* justify-content: center; */
-}
 .container-main {
   border: 1px solid rgb(6, 97, 157);
   box-shadow: 1px 3px 3px 2px rgb(42, 42, 76);
 
   display: flex;
   flex-wrap: wrap;
+  background-color: aliceblue;
+  overflow: auto;
 }
 .container-child {
   background-color: azure;
@@ -37,10 +31,10 @@ body {
   margin: 2rem;
   padding: 1rem;
   border-radius: 1px;
+  color: #1c00a6;
   box-shadow: 1px 8px 1px 5px;
 }
 .items {
   border: none;
-  /* border-bottom: 2px solid rgb(18, 56, 5); */
   margin-bottom: 2px;
 }

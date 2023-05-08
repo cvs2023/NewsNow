@@ -1,76 +1,44 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-function App() {
-  const dummyObj = [
-    {
-      source: {
-        id: null,
-        name: "NDTV News",
-      },
-      author: null,
-      title:
-        "Sharad Pawar Quits As NCP Chief Amid Speculation Over Nephew Ajit Pawar - NDTV",
-      description:
-        "Senior Maharashtra politician Sharad Pawar has stepped down as president of the Nationalist Congress Party (NCP). There has been no announcement yet on who will succeed him as party boss.",
-      url: "https://www.ndtv.com/india-news/sharad-pawar-says-he-has-decided-to-step-down-as-ncp-president-3997360",
-      urlToImage:
-        "https://c.ndtvimg.com/2023-05/6ekeij6_sharad-pawar_625x300_02_May_23.jpg",
-      publishedAt: "2023-05-02T08:22:00Z",
-      content:
-        "Sharad Pawar also announced a panel of senior party leaders to draw a future course of action.\r\nNew Delhi: Senior Maharashtra politician Sharad Pawar today announced that he has stepped down as presi… [+3969 chars]",
+const dummyObj = [
+  {
+    source: {
+      id: null,
+      name: "News Now",
     },
-  ];
+    author: null,
+    title: "Welcome to Latest Crypto News Now",
+    description: "Please Wait Loading...",
+    url: "https://www.ndtv.com/india-news/sharad-pawar-says-he-has-decided-to-step-down-as-ncp-president-3997360",
+    urlToImage:
+      "https://c.ndtvimg.com/2023-05/6ekeij6_sharad-pawar_625x300_02_May_23.jpg",
+    publishedAt: "2023-05-02T08:22:00Z",
+    content: "",
+  },
+];
+function App() {
   const [news, setNews] = useState(dummyObj);
+  const url2 =
+    "https://newsdata.io/api/1/news?apikey=pub_21813bb2c3af64c5c57f1b2051b6baaed22e4&q=crypto&language=en";
 
+  const getData = async () => {
+    const response = await fetch(url2);
+    const data = await response.json();
+    // console.log(data.results);
+    setNews(data.results);
+  };
   useEffect(() => {
-    const apiKey = "35337b65c2364bb592cdc61f382c77b4";
-    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}`;
-
-    const fetchNews = async () => {
-      try {
-        const response = await axios.get(url);
-        // const data = await response.json();
-        console.log(response.data.articles);
-
-        // console.log(data.articles);
-        setNews(response.data.articles);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchNews();
+    getData();
   }, []);
-  // const getData = async () => {
-  //   const response = await fetch(
-  //     "https://newsapi.org/v2/top-headlines?country=in&apiKey=35337b65c2364bb592cdc61f382c77b4"
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => setNews(data.articles));
-  // };
-  // useEffect(() => {
-  //   getData();
-  // }, []);
 
-  // const getData = async () => {
-  //   const response = await fetch(
-  //     "https://newsapi.org/v2/top-headlines?country=in&apiKey=35337b65c2364bb592cdc61f382c77b4"
-  //   );
-  //   const data = await response.json();
-  //   // console.log(data);
-  //   setNews(data.articles);
-  // };
-  // useEffect(() => {
-  //   getData();
-  // }, []);
   return (
     <div className="App">
       <div className="container-main">
         {news.map((i, index) => {
           return (
             <div key={index} className="container-child">
-              <a href={i.url} className="items">
+              <a href={i.link} className="items">
                 {i.title}
               </a>
               <p>{i.description}</p>
@@ -83,3 +51,10 @@ function App() {
 }
 
 export default App;
+
+/*
+  const cryptoApi = "pub_21813bb2c3af64c5c57f1b2051b6baaed22e4";
+
+const url1 =
+    "https://newsdata.io/api/1/archive?apikey=pub_21813bb2c3af64c5c57f1b2051b6baaed22e4&q=pizza&language=en&from_date=2023-01-19&to_date=2023-01-25";
+*/

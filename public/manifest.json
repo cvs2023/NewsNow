@@ -3,14 +3,9 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "browser_action": {
-    "default_popup": "index.html",
-    "default_icon": "logo2.png"
+    "default_popup": "index.html"
   },
   "permissions": ["activeTab"],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
   "icons": {
     "16": "logo2.png",
     "48": "logo2.png",
